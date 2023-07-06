@@ -14,7 +14,7 @@ directory = 'C:\question scrapper\Qdata'
 index_file = os.path.join(directory, 'index.txt')
 if os.path.isfile(index_file):
     # Process index.txt
-    with open(index_file, 'r') as f:
+    with open(index_file, 'r',encoding= 'utf-8', errors = "ignore") as f:
         problem_statement = f.read()
 
     # Preprocess the problem statement
@@ -40,7 +40,7 @@ for subdirectory in os.listdir(directory):
         # Iterate over the .txt files and read the contents
         for file in txt_files:
             file_path = os.path.join(subdirectory_path, file)
-            with open(file_path, 'r') as f:
+            with open(file_path, 'r', encoding= 'utf-8', errors = "ignore") as f:
                 problem_statement = f.read()
 
             # Preprocess the problem statement
