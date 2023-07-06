@@ -1,11 +1,12 @@
 # read the index.txt and prepare documents, vocab , idf
 
 import os
+import re
 
 # Define the preprocess function
 def preprocess(document_text):
     # remove the leading numbers from the string, remove not alpha numeric characters, make everything lowercase
-    terms = [term.lower() for term in document_text.strip().split()[1:]]
+    terms = [re.sub(r'[^a-zA-Z0-9]', '', term.lower()) for term in document_text.strip().split()[1:]]
     return terms
 
 directory = 'C:\question scrapper\Qdata'
