@@ -9,6 +9,7 @@ def preprocess(document_text):
     return terms
 
 directory = 'C:\question scrapper\Qdata'
+target_str = "Example 1:"
 
 # Check if index.txt is present in the directory
 index_file = os.path.join(directory, 'index.txt')
@@ -57,14 +58,17 @@ vocab = {}
 documents = []
 for index, line in enumerate(problem_statement):
     # read statement and add it to the line and then preprocess
-    tokens = preprocess(line)
-    documents.append(tokens)
-    tokens = set(tokens)
-    for token in tokens:
-        if token not in vocab:
-            vocab[token] = 1
-        else:
-            vocab[token] += 1
+    if target_str in line:
+        break;
+    else
+        tokens = preprocess(line)
+        documents.append(tokens)
+        tokens = set(tokens)
+        for token in tokens:
+            if token not in vocab:
+                vocab[token] = 1
+            else:
+                vocab[token] += 1
 
 # reverse sort the vocab by the values
 vocab = dict(sorted(vocab.items(), key=lambda item: item[1], reverse=True))
