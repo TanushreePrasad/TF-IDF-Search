@@ -61,7 +61,7 @@ for index, line in enumerate(problem_statement):
     # read statement and add it to the line and then preprocess
     if target_str in line:
         break;
-    else
+    else:
         tokens = preprocess(line)
         documents.append(tokens)
         tokens = set(tokens)
